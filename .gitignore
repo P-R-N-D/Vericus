@@ -1,0 +1,99 @@
+# This file intentionally ignores only secrets, local machine state, and unredacted local artifacts.
+# Do not add broad generated-output ignores without a concrete reason.
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# Private keys / certificates
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa
+id_dsa
+id_ecdsa
+id_ed25519
+
+# Credential-shaped local files
+*credentials*.json
+*credential*.json
+*secret*.json
+*secrets*.json
+*service-account*.json
+*service_account*.json
+*token*.json
+*.client-secret.json
+
+# Local-only config conventions
+*.local
+*.local.*
+*.local.json
+*.local.yaml
+*.local.yml
+*.local.toml
+
+# Logs may contain secrets
+*.log
+logs/
+
+# Cursor local state, while keeping shared rules trackable
+.cursor/*
+!.cursor/rules/
+!.cursor/rules/*.mdc
+
+# Claude local state
+.claude/settings.local.json
+.claude/logs/
+
+# MCP / local agent integration state
+.mcp/
+mcp.local.*
+mcp.*.local.*
+*mcp*.local.*
+
+# Browser profiles may contain sessions/cookies
+.chrome/
+.chromium/
+.webkit/
+chrome-user-data/
+chromium-user-data/
+webkit-user-data/
+
+# Playwright local browser/session state only
+.playwright/
+playwright/.cache/
+playwright.config.local.*
+playwright.*.local.*
+playwright-mcp.local.*
+playwright-mcp.*.local.*
+
+# Postman / Newman local state and local environments only
+.postman/
+*.postman_environment.local.json
+postman.local.*
+postman.*.local.*
+postman-mcp.local.*
+postman-mcp.*.local.*
+newman.local.*
+newman.*.local.*
+
+# Supabase local secrets only
+supabase/.env
+supabase/.env.*
+supabase/config.local.*
+supabase/*.local.toml
+
+# Vericus local-only unredacted runtime state
+.vericus-local/
+.evidence-local/
+local-artifacts/

@@ -1,4 +1,4 @@
-@docs/AGENTS.md
+@docs/CONTEXT.md
 
 # Claude Code Notes
 

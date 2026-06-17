@@ -1,6 +1,6 @@
 # Vericus Copilot Instructions
 
-Follow [`docs/AGENTS.md`](../docs/AGENTS.md) first. It is the canonical source of truth for AI-facing instructions.
+Follow [`docs/CONTEXT.md`](../docs/CONTEXT.md) first. It is the canonical source of truth for AI-facing context and instructions.
 
 Guardrails:
 
