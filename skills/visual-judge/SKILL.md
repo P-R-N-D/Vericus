@@ -1,3 +1,8 @@
+---
+name: visual-judge
+description: Use vision models only when structured evidence is insufficient.
+---
+
 # Visual Judge Skill
 
 ## When to use

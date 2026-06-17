@@ -1,3 +1,8 @@
+---
+name: db-migration
+description: Define the approval-first procedure for future database migrations.
+---
+
 # DB Migration Skill
 
 ## When to use

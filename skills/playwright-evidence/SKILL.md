@@ -1,3 +1,8 @@
+---
+name: playwright-evidence
+description: Collect GUI and browser evidence safely with Playwright.
+---
+
 # Playwright Evidence Skill
 
 ## When to use
@@ -25,7 +30,9 @@ Use this skill when you need to collect GUI or browser evidence from a page, flo
 
 - Do not perform state-changing actions.
 - Do not submit forms, delete data, make payments, or trigger production side effects without explicit approval.
-- Mask sensitive payloads, cookies, tokens, and passwords.
+- Do not persist unredacted screenshots, network payloads, cookies, tokens, passwords, or session values.
+- Mask sensitive regions or values before persistent storage.
+- Store raw artifacts only after redaction when they may contain sensitive data.
 - Prefer deterministic evidence collection over uncontrolled browsing.
 
 ## Procedure
@@ -35,11 +42,12 @@ Use this skill when you need to collect GUI or browser evidence from a page, flo
 3. Open the approved page with Playwright.
 4. Capture screenshots and accessibility snapshot summaries.
 5. Summarize form fields, cookies, network activity, and console errors.
-6. Mask sensitive data.
-7. Store raw artifacts separately from compact summaries.
+6. Mask sensitive data before writing any persistent artifact.
+7. Store raw artifacts only after redaction when they may contain sensitive data.
+8. Store raw artifacts separately from compact summaries.
 
 ## Test method
 
 - Verify that screenshots and summaries match the approved scenario.
 - Verify that no state-changing action was executed.
-- Verify that sensitive payloads are masked.
+- Verify that sensitive payloads are masked before persistent storage.

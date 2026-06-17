@@ -1,3 +1,8 @@
+---
+name: compliance-rag
+description: Separate compliance references, evidence, source grading, and human review.
+---
+
 # Compliance RAG Skill
 
 ## When to use
