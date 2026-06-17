@@ -1,15 +1,52 @@
-# OS / editor
+# This file intentionally ignores only secrets, local machine state, and unredacted local artifacts.
+# Do not add broad generated-output ignores without a concrete reason.
+
+# OS / editor noise
 .DS_Store
 Thumbs.db
 *.swp
 *.swo
 *~
-.idea/
-.vscode/*
-!.vscode/extensions.json
-!.vscode/settings.json
 
-# Cursor rules must remain trackable
+# Environment / secrets
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# Private keys / certificates
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa
+id_dsa
+id_ecdsa
+id_ed25519
+
+# Credential-shaped local files
+*credentials*.json
+*credential*.json
+*secret*.json
+*secrets*.json
+*service-account*.json
+*service_account*.json
+*token*.json
+*.client-secret.json
+
+# Local-only config conventions
+*.local
+*.local.*
+*.local.json
+*.local.yaml
+*.local.yml
+*.local.toml
+
+# Logs may contain secrets
+*.log
+logs/
+
+# Cursor local state, while keeping shared rules trackable
 .cursor/*
 !.cursor/rules/
 !.cursor/rules/*.mdc
@@ -18,76 +55,30 @@ Thumbs.db
 .claude/settings.local.json
 .claude/logs/
 
-# Environment / secrets
-.env
-.env.*
-!.env.example
-!.env.*.example
-*.pem
-*.key
-*.p12
-*.pfx
-*service-account*.json
-*credentials*.json
-*secret*.json
+# MCP / local agent integration state
+.mcp/
+mcp.local.*
+mcp.*.local.*
+*mcp*.local.*
 
-# Logs / temp
-*.log
-*.lock
-logs/
-tmp/
-temp/
-.cache/
+# Browser profiles may contain sessions/cookies
+.chrome/
+.chromium/
+.webkit/
+chrome-user-data/
+chromium-user-data/
+webkit-user-data/
 
-# Python
-__pycache__/
-*.py[cod]
-*.pyo
-*.pyd
-.python-version
-.venv/
-venv/
-env/
-ENV/
-.pytest_cache/
-.mypy_cache/
-.ruff_cache/
-.coverage
-coverage.xml
-htmlcov/
-dist/
-build/
-*.egg-info/
-
-# Node / frontend
-node_modules/
-.next/
-.nuxt/
-.svelte-kit/
-out/
-coverage/
-.npm/
-.pnpm-store/
-yarn-error.log*
-npm-debug.log*
-pnpm-debug.log*
-
-# Playwright CLI / MCP / browser artifacts
-test-results/
-playwright-report/
-blob-report/
-playwright/.cache/
+# Playwright local browser/session state only
 .playwright/
+playwright/.cache/
 playwright.config.local.*
 playwright.*.local.*
 playwright-mcp.local.*
 playwright-mcp.*.local.*
 
-# Postman GUI / CLI / MCP and Newman
+# Postman / Newman local state and local environments only
 .postman/
-newman/
-postman-report/
-postman-results/
 *.postman_environment.local.json
 postman.local.*
 postman.*.local.*
@@ -96,56 +87,13 @@ postman-mcp.*.local.*
 newman.local.*
 newman.*.local.*
 
-# AI tooling / browser / server integration local settings
-.mcp/
-mcp.local.*
-mcp.*.local.*
-*mcp*.local.*
-.chrome/
-.chromium/
-.webkit/
-chrome-user-data/
-chromium-user-data/
-webkit-user-data/
-.supabase/
-supabase/.branches/
-supabase/.temp/
+# Supabase local secrets only
 supabase/.env
 supabase/.env.*
 supabase/config.local.*
 supabase/*.local.toml
-supabase/config.toml
 
-# Vericus runtime artifacts
-.vericus/
-artifacts/
-evidence-artifacts/
-tool-runs/
-scan-results/
-
-# Local databases / vector stores
-*.sqlite
-*.sqlite3
-*.db
-*.db-journal
-chroma/
-.chroma/
-qdrant_storage/
-lancedb/
-.faiss/
-
-# Scanner outputs
-*.sarif
-*.cyclonedx.json
-*.spdx.json
-
-# Local model weights / large ML artifacts
-models/
-checkpoints/
-*.safetensors
-*.gguf
-*.bin
-*.pt
-*.pth
-*.onnx
-*.ckpt
+# Vericus local-only unredacted runtime state
+.vericus-local/
+.evidence-local/
+local-artifacts/
