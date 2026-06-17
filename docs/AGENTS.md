@@ -1,60 +1,70 @@
 # Vericus Agent Guidelines
 
-이 문서는 Vericus 레포지토리에서 Codex, Claude Code, GitHub Copilot, Cursor 등 자동화 에이전트가 공통으로 따라야 하는 canonical source of truth입니다. 다른 에이전트 관문 파일은 이 문서를 우선 참조해야 합니다.
+This file is the canonical source of truth for AI agents working in this repository. Read it before following any bridge file, tool-specific rule, or generated suggestion.
 
 ## Project purpose
 
-Vericus는 GUI/CLI 테스트, 취약점 분석, 컴플라이언스 검증, 감사 증거 리포팅을 위한 evidence-driven workspace입니다. RAG, LangGraph 기반 오케스트레이션, tool-based execution을 활용해 사람이 검토할 수 있는 근거 중심 작업 공간을 지향합니다.
+Vericus is an evidence-driven workspace for GUI/CLI testing, vulnerability analysis, compliance validation, and audit evidence reporting. It combines RAG, LangGraph-style orchestration, and tool-based execution to help humans review traceable evidence.
 
-## Core principles
+## Document roles
 
-- Agent는 증거를 수집하고 정리하며, 최종 판단은 사람이 합니다.
-- RAG는 판단 근거(reference)이고, GUI/CLI/API/tool output은 live evidence입니다.
-- Reference와 evidence를 반드시 분리합니다.
-- Root, sudo, administrator 권한이 필요한 작업은 수행하지 않습니다.
-- Destructive command를 실행하지 않습니다.
-- Secret, API key, password, token을 작성하거나 커밋하지 않습니다.
-- 실제 접속 정보, 운영 서버 정보, 비공개 자격 증명은 문서나 예시에 포함하지 않습니다.
+- AI-facing documents define instructions that agents must follow.
+- Human-facing documents explain project intent and structure for people.
+- `docs/AGENTS.md` is the canonical AI-facing instruction file.
+- `skills/*/SKILL.md` files define task- or tool-level execution procedures.
+- Human-facing explanation documents should be split by language, for example `docs/<topic>.ko.md` and `docs/<topic>.en.md`.
+
+## Core rules
+
+- Collect evidence; do not make the final human judgment.
+- Treat RAG output as reference material.
+- Treat GUI, CLI, API, and tool output as live evidence.
+- Keep references separate from evidence.
+- Do not use root, sudo, or administrator privileges.
+- Do not run destructive commands.
+- Do not write or commit secrets, API keys, passwords, tokens, or real server credentials.
+- Do not create `.env` files. Use `.env.example` only when explicitly needed.
 
 ## Architecture direction
 
 ### Frontend
 
 - Case workspace
-- Plan/context view
-- GUI/CLI/API replay
+- Plan and context views
+- GUI, CLI, and API replay
 - Evidence timeline
 - Report review
 
 ### Backend
 
 - RAG retrieval
-- LangGraph orchestration
-- Policy check
+- LangGraph-style orchestration
+- Policy checks
 - Tool dispatch
 - Evidence storage
 - Report generation
 
 ## Tool roles
 
-- Playwright: GUI/browser evidence 수집
-- Newman/Postman CLI: API test evidence 수집
-- CLI scanners: vulnerability/compliance evidence 수집
-- Local/online LLM: planning, summarization, visual judgment, report drafting
+- Playwright collects GUI and browser evidence.
+- Newman/Postman CLI collects API test evidence.
+- CLI scanners collect vulnerability and compliance evidence.
+- Local or online LLMs support planning, summarization, visual judgment, and report drafting.
 
-## Development principles
+## Development rules
 
-- Agent orchestration, policy checks, tool execution, evidence storage를 분리합니다.
-- Tool 실행 전 policy check를 수행합니다.
-- Uncontrolled browser exploration보다 deterministic evidence collection을 우선합니다.
-- Report는 reference와 evidence로 역추적 가능해야 합니다.
-- Tool output은 가능한 한 raw artifact와 compact summary를 분리해 보존합니다.
-- Human review가 필요한 법률, 보안, 감사 판단은 자동 확정하지 않습니다.
+- Separate agent orchestration, policy checks, tool execution, and evidence storage.
+- Run a policy check before tool execution.
+- Prefer deterministic evidence collection over uncontrolled browser exploration.
+- Make reports traceable to references, evidence, and tool runs.
+- Store raw artifacts separately from compact summaries when possible.
+- Mark legal, security, and audit conclusions for human review.
 
 ## Repository guardrails
 
-- DB schema 구현, migration 파일 생성, ORM 모델 수정은 별도 승인 없이 하지 않습니다.
-- Backend/frontend 기능 구현은 명시 요청이 있을 때만 수행합니다.
-- 패키지 설치와 lockfile 변경은 명시 요청이 있을 때만 수행합니다.
-- `.env` 파일은 만들지 않습니다. 필요한 경우 `.env.example`만 작성합니다.
-- README와 LICENSE 정책은 훼손하지 않습니다.
+- Do not implement DB schema changes without explicit approval.
+- Do not create migrations without explicit approval.
+- Do not edit ORM models without explicit approval.
+- Do not implement backend or frontend features unless explicitly requested.
+- Do not install packages or change lockfiles unless explicitly requested.
+- Preserve existing README and LICENSE policy.

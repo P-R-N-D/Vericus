@@ -2,42 +2,42 @@
 
 ## When to use
 
-Playwright 구조화 증거만으로 판단하기 어렵고, 로컬 VLM 또는 온라인 vision model을 선택적으로 사용해 시각 판단을 보조해야 할 때 사용합니다.
+Use this skill when structured Playwright evidence is not enough and a local VLM or online vision model may help with visual assessment.
 
 ## Inputs
 
-- Screenshot 또는 이미지 artifact
-- Playwright 구조화 증거
-- 판단 질문과 허용 범위
-- 마스킹해야 할 민감 영역
+- Screenshot or image artifact
+- Structured Playwright evidence
+- Visual question and allowed scope
+- Sensitive regions that must be masked
 
 ## Outputs
 
 - Visual observation summary
-- Confidence/limitation note
-- Evidence 연결 정보
-- Human review 필요 여부
+- Confidence and limitation note
+- Evidence links
+- Human review flag when needed
 
 ## Safety rules
 
-- 기본 근거는 Playwright 구조화 증거로 삼습니다.
-- Image 판단은 필요할 때만 사용합니다.
-- Screenshot을 매 step마다 LLM에 보내지 않습니다.
-- 민감 정보가 포함된 이미지 영역은 마스킹합니다.
-- 시각 판단은 최종 감사/보안 판단으로 자동 확정하지 않습니다.
+- Use structured Playwright evidence as the default basis.
+- Use image-based judgment only when needed.
+- Do not send every step screenshot to an LLM.
+- Mask sensitive image regions.
+- Do not auto-finalize audit, security, or legal conclusions from visual judgment.
 
 ## Procedure
 
-1. 구조화 증거로 충분한지 먼저 평가합니다.
-2. 필요한 경우에만 screenshot을 선택합니다.
-3. 민감 영역을 마스킹합니다.
-4. 로컬 VLM 또는 온라인 vision model 사용 여부를 결정합니다.
-5. 시각 관찰, 한계, confidence를 기록합니다.
-6. 관련 evidence와 연결합니다.
-7. 필요한 항목은 human review로 표시합니다.
+1. Check whether structured evidence is sufficient.
+2. Select screenshots only when visual review is needed.
+3. Mask sensitive regions.
+4. Choose a local VLM or online vision model if approved for the task.
+5. Record observations, limitations, and confidence.
+6. Link the result to evidence.
+7. Mark uncertain or high-impact conclusions for human review.
 
 ## Test method
 
-- Vision model 호출이 필요한 경우에만 이루어졌는지 확인합니다.
-- Screenshot 마스킹이 적용되었는지 확인합니다.
-- 판단 결과가 evidence와 연결되고 한계가 기록되었는지 확인합니다.
+- Verify that vision model use was necessary.
+- Verify that screenshot masking was applied.
+- Verify that the result links back to evidence and states limitations.

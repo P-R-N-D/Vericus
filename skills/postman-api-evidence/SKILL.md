@@ -2,18 +2,18 @@
 
 ## When to use
 
-Newman/Postman CLI 기반으로 API test evidence를 수집해야 할 때 사용합니다.
+Use this skill when you need to collect API test evidence with Newman or Postman CLI.
 
 ## Inputs
 
-- Postman collection 파일 또는 collection 식별자
-- Environment 파일 또는 변수 목록
-- 실행 범위와 허용된 endpoint
-- 마스킹해야 할 token/secret 목록
+- Postman collection file or collection identifier
+- Environment file or approved variable set
+- Allowed endpoint scope
+- Tokens, secrets, or variables that must be masked
 
 ## Outputs
 
-- Newman 실행 결과 JSON
+- Newman result JSON
 - Status summary
 - Latency summary
 - Assertion failure summary
@@ -21,23 +21,23 @@ Newman/Postman CLI 기반으로 API test evidence를 수집해야 할 때 사용
 
 ## Safety rules
 
-- Token, secret, password, API key는 마스킹합니다.
-- 운영 시스템에 상태 변경을 일으키는 요청은 명시 승인 없이 실행하지 않습니다.
-- 허용된 collection/environment만 사용합니다.
-- 실제 자격 증명을 저장하거나 커밋하지 않습니다.
+- Mask tokens, secrets, passwords, and API keys.
+- Do not send state-changing requests to production without explicit approval.
+- Use only approved collections and environments.
+- Do not store or commit real credentials.
 
 ## Procedure
 
-1. Collection, environment, endpoint 범위를 확인합니다.
-2. 상태 변경 요청과 민감 변수를 식별합니다.
-3. 허용된 Newman/Postman CLI 실행만 수행합니다.
-4. 결과 JSON을 파싱합니다.
-5. Status, latency, assertion failure를 요약합니다.
-6. Token/secret을 마스킹합니다.
-7. Raw result와 compact summary를 evidence로 분리합니다.
+1. Confirm the collection, environment, and endpoint scope.
+2. Identify state-changing requests and sensitive variables.
+3. Run only approved Newman/Postman CLI commands.
+4. Parse the result JSON.
+5. Summarize status codes, latency, and assertion failures.
+6. Mask tokens and secrets.
+7. Store raw results separately from compact summaries.
 
 ## Test method
 
-- 결과 JSON이 파싱 가능한지 확인합니다.
-- Status, latency, assertion failure 요약이 원본 결과와 일치하는지 확인합니다.
-- 민감 정보가 출력과 artifact에 남지 않았는지 확인합니다.
+- Verify that the result JSON can be parsed.
+- Verify that status, latency, and assertion summaries match the raw output.
+- Verify that no sensitive value remains in output or artifacts.
