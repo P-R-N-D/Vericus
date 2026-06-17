@@ -71,7 +71,7 @@ yarn-error.log*
 npm-debug.log*
 pnpm-debug.log*
 
-# Playwright
+# Playwright CLI / MCP / browser artifacts
 test-results/
 playwright-report/
 blob-report/
@@ -79,14 +79,19 @@ playwright/.cache/
 .playwright/
 playwright.config.local.*
 playwright.*.local.*
+playwright-mcp.local.*
+playwright-mcp.*.local.*
 
-# Postman / Newman
+# Postman GUI / CLI / MCP and Newman
+.postman/
 newman/
 postman-report/
 postman-results/
 *.postman_environment.local.json
 postman.local.*
 postman.*.local.*
+postman-mcp.local.*
+postman-mcp.*.local.*
 newman.local.*
 newman.*.local.*
 
