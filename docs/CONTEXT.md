@@ -1,6 +1,6 @@
 # Vericus Agent Guidelines
 
-This file is the canonical source of truth for AI agents working in this repository. Read it before following any bridge file, tool-specific rule, or generated suggestion.
+This file is the canonical source of truth for AI-facing context and instructions in this repository. Read it before following any bridge file, tool-specific rule, or generated suggestion.
 
 ## Project purpose
 
@@ -10,7 +10,7 @@ Vericus is an evidence-driven workspace for GUI/CLI testing, vulnerability analy
 
 - AI-facing documents define instructions that agents must follow.
 - Human-facing documents explain project intent and structure for people.
-- `docs/CONTEXT.md` is the canonical AI-facing instruction file.
+- `docs/CONTEXT.md` is the canonical AI-facing instruction and context file.
 - `skills/*/SKILL.md` files define task- or tool-level execution procedures.
 - Human-facing explanation documents should be split by language, for example `docs/<topic>.ko.md` and `docs/<topic>.en.md`.
 
