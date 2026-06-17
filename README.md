@@ -1,12 +1,13 @@
 <h1 align="center">Vericus</h1>
 
 <p align="center">
-  <strong>설명</strong><br>
-  <strong>Description</strong>
+  <strong>RAG와 LangGraph, tool-based execution을 활용하는 evidence-driven workspace</strong><br>
+  <strong>An evidence-driven workspace powered by RAG, LangGraph, and tool-based execution</strong>
 </p>
 
 <p align="center">
-  언어를 선택하세요.<br>Select language.
+  GUI/CLI testing, vulnerability analysis, compliance auditing을 지원하는 방향입니다.<br>
+  See the Korean and English documentation for details.
 </p>
 
 <p align="center">
