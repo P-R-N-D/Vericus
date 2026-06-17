@@ -76,12 +76,39 @@ test-results/
 playwright-report/
 blob-report/
 playwright/.cache/
+.playwright/
+playwright.config.local.*
+playwright.*.local.*
 
 # Postman / Newman
 newman/
 postman-report/
 postman-results/
 *.postman_environment.local.json
+postman.local.*
+postman.*.local.*
+newman.local.*
+newman.*.local.*
+
+# AI tooling / browser / server integration local settings
+.mcp/
+mcp.local.*
+mcp.*.local.*
+*mcp*.local.*
+.chrome/
+.chromium/
+.webkit/
+chrome-user-data/
+chromium-user-data/
+webkit-user-data/
+.supabase/
+supabase/.branches/
+supabase/.temp/
+supabase/.env
+supabase/.env.*
+supabase/config.local.*
+supabase/*.local.toml
+supabase/config.toml
 
 # Vericus runtime artifacts
 .vericus/
