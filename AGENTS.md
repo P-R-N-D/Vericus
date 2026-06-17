@@ -1,6 +1,6 @@
 # Vericus Codex Entry Point
 
-Read [`docs/AGENTS.md`](docs/AGENTS.md) first. It is the canonical source of truth for AI-facing instructions.
+Read [`docs/CONTEXT.md`](docs/CONTEXT.md) first. It is the canonical source of truth for AI-facing instructions.
 
 Guardrails:
 

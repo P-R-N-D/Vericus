@@ -11,7 +11,7 @@ Vericus is an evidence-driven workspace for GUI/CLI testing, vulnerability analy
 
 ## Documentation structure
 
-- AI-facing instructions are defined in [`AGENTS.md`](AGENTS.md) under this `docs/` directory.
+- AI-facing instructions are defined in [`CONTEXT.md`](CONTEXT.md) under this `docs/` directory.
 - Split human-facing explanation documents into Korean and English files.
 - See [`database-schema-guidelines.en.md`](database-schema-guidelines.en.md) for database schema design guidelines.
 - See [`README.ko.md`](README.ko.md) for Korean documentation.
