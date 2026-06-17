@@ -1,0 +1,118 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# Cursor rules must remain trackable
+.cursor/*
+!.cursor/rules/
+!.cursor/rules/*.mdc
+
+# Claude local state
+.claude/settings.local.json
+.claude/logs/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.pem
+*.key
+*.p12
+*.pfx
+*service-account*.json
+*credentials*.json
+*secret*.json
+
+# Logs / temp
+*.log
+logs/
+tmp/
+temp/
+.cache/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.python-version
+.venv/
+venv/
+env/
+ENV/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+dist/
+build/
+*.egg-info/
+
+# Node / frontend
+node_modules/
+.next/
+.nuxt/
+.svelte-kit/
+out/
+coverage/
+.npm/
+.pnpm-store/
+yarn-error.log*
+npm-debug.log*
+pnpm-debug.log*
+
+# Playwright
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+
+# Postman / Newman
+newman/
+postman-report/
+postman-results/
+*.postman_environment.local.json
+
+# Vericus runtime artifacts
+.vericus/
+artifacts/
+evidence-artifacts/
+tool-runs/
+scan-results/
+
+# Local databases / vector stores
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+chroma/
+.chroma/
+qdrant_storage/
+lancedb/
+.faiss/
+
+# Scanner outputs
+*.sarif
+*.cyclonedx.json
+*.spdx.json
+
+# Local model weights / large ML artifacts
+models/
+checkpoints/
+*.safetensors
+*.gguf
+*.bin
+*.pt
+*.pth
+*.onnx
+*.ckpt
