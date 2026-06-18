@@ -1,17 +1,35 @@
 # Vericus
 
-Vericus는 GUI/CLI 테스트, 취약점 분석, 컴플라이언스 검증, 감사 증거 리포팅을 지원하기 위한 evidence-driven workspace입니다.
+Vericus는 GUI/CLI 테스트, 취약점 분석, 컴플라이언스 검증, 감사 증거 보고를 위한 evidence-driven workspace를 지향합니다.
 
-## 방향
+## 현재 초기 실행 scaffold
 
-- RAG는 판단 근거를 찾고 정리하는 데 사용합니다.
-- LangGraph 스타일의 오케스트레이션은 에이전트 실행 흐름을 구성하는 데 사용합니다.
-- Playwright, Newman/Postman CLI, CLI scanner 같은 도구 결과는 live evidence로 취급합니다.
-- 최종 법률, 보안, 감사 판단은 사람이 검토합니다.
+- Frontend: Next.js, React, TypeScript, Tailwind CSS, axios, SweetAlert2, Playwright.
+- Backend: Django, Django REST Framework, Django Admin, Django ORM, django-cors-headers.
+- Local 연동: Next.js 개발 서버가 `/api/*` 요청을 Django backend `http://127.0.0.1:8000/api/*`로 rewrite합니다.
+- Health endpoint: `GET /api/health/`.
+- Django Admin: `/admin/`.
 
-## 문서 구조
+이번 초기 scaffold에는 Docker, Nginx, K8s, Helm, production deployment manifest, custom domain model, custom migration, SQL schema 작업이 포함되지 않습니다.
 
-- AI-facing 지침과 컨텍스트는 이 `docs/` 디렉터리의 [`CONTEXT.md`](CONTEXT.md)에 정의되어 있습니다.
-- 사람이 읽는 설명 문서는 한국어/영어를 분리합니다.
-- DB 스키마 설계 지침은 [`database-schema-guidelines.ko.md`](database-schema-guidelines.ko.md)를 참고하세요.
-- 영어 문서는 [`README.en.md`](README.en.md)를 참고하세요.
+## 로컬 실행 순서
+
+```bash
+# Backend
+python -m pip install -r backend/requirements.txt
+python backend/manage.py check
+python backend/manage.py runserver 127.0.0.1:8000
+
+# Frontend
+cd frontend
+npm install
+npm run build
+npm run test:visual
+npm run dev -- --hostname 127.0.0.1 --port 3000
+```
+
+브라우저에서 `http://127.0.0.1:3000`을 열면 Vericus workspace shell과 `/api/health/` 응답이 표시됩니다. Backend 연결 실패 또는 재시도 실패 시 SweetAlert2 alert가 표시됩니다.
+
+## 방향성
+
+Next.js frontend는 case workspace, evidence timeline, report review, visual artifact viewer, reviewer/admin UI를 위한 제품형 화면으로 확장될 예정입니다. Django Admin은 내부 운영자/admin workflow 용도로 예약됩니다.
