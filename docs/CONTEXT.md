@@ -11,9 +11,9 @@ Vericus is an evidence-driven workspace for GUI/CLI testing, vulnerability analy
 - AI-facing documents define instructions that agents must follow.
 - Human-facing documents explain project intent and structure for people.
 - `docs/CONTEXT.md` is the canonical AI-facing instruction and context file.
-- `docs/ARCHITECTURE.md` describes the LangGraph graph, subgraphs, tool dispatch, and evidence flow.
-- `docs/STATE-SCHEMA.md` describes LangGraph state, evidence object, tool run, and runbook schema concepts.
-- `docs/TESTING.md` describes testing strategy for GUI, API, CLI scanner, and document-only changes.
+- [`docs/ARCHITECTURE.md`](ARCHITECTURE.md) describes the LangGraph graph, subgraphs, tool dispatch, and evidence flow.
+- [`docs/STATE-SCHEMA.md`](STATE-SCHEMA.md) describes LangGraph state, evidence object, tool run, and runbook schema concepts.
+- [`docs/TESTING.md`](TESTING.md) describes testing strategy for GUI, API, CLI scanner, and document-only changes.
 - `skills/*/SKILL.md` files define task- or tool-level execution procedures.
 - Human-facing explanation documents should be split by language, for example `docs/<topic>.ko.md` and `docs/<topic>.en.md`.
 

@@ -19,8 +19,9 @@ GUI and browser evidence testing should use Playwright when browser behavior, UI
 Guidelines:
 
 - Use Playwright for approved GUI and browser evidence collection.
-- Do not rely only on DOM or accessibility snapshots when UI appearance changed or when visual state matters.
-- Include visual testing for UI changes, such as screenshots or visual comparison, when appropriate.
+- UI or web design changes must include Playwright-based visual testing.
+- Visual testing must be done in addition to DOM, accessibility, or CLI checks.
+- If visual testing reveals layout or appearance issues, fix them before completing the task.
 - Store screenshot and trace artifacts only after sensitive information is redacted or otherwise handled according to policy.
 - Keep browser evidence tied to the case, plan step, and tool run that produced it.
 
