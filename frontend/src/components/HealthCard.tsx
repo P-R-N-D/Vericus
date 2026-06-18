@@ -13,7 +13,7 @@ export function HealthCard() {
   const loadHealth = useCallback(async (showAlert: boolean) => {
     setState("loading");
     try {
-      const response = await api.get<HealthResponse>("/health/");
+      const response = await api.get<HealthResponse>("health/");
       setHealth(response.data);
       setState("ok");
     } catch {

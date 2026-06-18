@@ -48,6 +48,17 @@ npm run dev -- --hostname 127.0.0.1 --port 3000
 
 Open `http://127.0.0.1:3000` to view the Vericus workspace shell and backend health status.
 
+### Optional Django Admin setup
+
+Django Admin is enabled at `/admin/`. To use it locally, run Django built-in migrations and create a local superuser:
+
+```bash
+python backend/manage.py migrate
+python backend/manage.py createsuperuser
+```
+
+`backend/db.sqlite3` is a local development artifact and must not be committed. This scaffold does not add custom domain migrations.
+
 ---
 
 ## Language
