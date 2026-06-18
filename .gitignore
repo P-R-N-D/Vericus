@@ -1,5 +1,4 @@
-# This file intentionally ignores only secrets, local machine state, and unredacted local artifacts.
-# Do not add broad generated-output ignores without a concrete reason.
+# This file intentionally ignores secrets, local machine state, and generated local artifacts.
 
 # OS / editor noise
 .DS_Store
@@ -7,6 +6,25 @@ Thumbs.db
 *.swp
 *.swo
 *~
+
+# Node / Next.js local dependencies and outputs
+node_modules/
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/dist/
+frontend/test-results/
+frontend/playwright-report/
+frontend/blob-report/
+
+# Python / Django local artifacts
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+backend/db.sqlite3
+backend/staticfiles/
 
 # Environment / secrets
 .env

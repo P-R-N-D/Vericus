@@ -2,7 +2,19 @@
 
 Vericus is an evidence-driven workspace. Agents should collect, preserve, summarize, and trace evidence for human review rather than making final legal, security, compliance, or audit judgments.
 
-This document describes the AI-facing architecture direction for planning and review. It is a structural guide, not implementation code.
+This document describes the AI-facing architecture direction for planning and review. It also records the current initial application scaffold boundaries.
+
+## Current runnable scaffold
+
+- Frontend stack: Next.js, React, TypeScript, Tailwind CSS, axios, SweetAlert2, and Playwright.
+- Backend stack: Django, Django REST Framework, Django Admin, Django ORM, and django-cors-headers.
+- Local integration: Next.js rewrites `/api/*` to the Django backend at `http://127.0.0.1:8000/api/*` during local development.
+- Health endpoint: Django exposes `GET /api/health/` for frontend/backend connectivity checks.
+- Admin route: Django Admin is enabled at `/admin/` for internal operator/admin workflows.
+
+The Next.js frontend is reserved for product-style case workspace, evidence timeline, report review, visual artifact viewer, and reviewer/admin UI. Django REST Framework is the initial API layer. Django ORM is the primary ORM.
+
+FastAPI and SQLAlchemy are not part of the initial backend stack. FastAPI may be considered later only as a separate tool-runner or streaming service after explicit approval. Docker, Nginx, K8s, Helm, deployment manifests, production settings, custom domain DB models, custom migrations, SQL schema work, Alembic, and Prisma are not part of this scaffold.
 
 ## LangGraph-style orchestration overview
 
@@ -38,7 +50,7 @@ A typical top-level graph may contain these conceptual nodes:
 
 ### Playwright GUI evidence
 
-The Playwright GUI evidence subgraph collects browser-based evidence for UI behavior, workflows, and visual state. It should capture screenshots, traces, relevant DOM context, accessibility observations, and concise summaries when in scope. UI changes should not be evaluated only through DOM or accessibility snapshots when visual evidence is relevant.
+The Playwright GUI evidence subgraph collects browser-based evidence for UI behavior, workflows, and visual state. It should capture screenshots, traces, relevant DOM context, accessibility observations, and concise summaries when in scope. UI changes must include Playwright-based visual testing and should not be evaluated only through DOM or accessibility snapshots when visual evidence is relevant.
 
 ### Postman/Newman API evidence
 
